@@ -1,0 +1,309 @@
+/* General reset and styling */
+body {
+    display: flex;
+    flex-direction: column; /* Permitir que el footer se adhiera a la parte inferior */
+    min-height: 100vh; /* Asegurar que el cuerpo ocupe al menos toda la altura de la ventana */
+    margin: 0;
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    background-color: rgb(173, 97, 244);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden;
+    min-width: 320px;
+    justify-content: space-between;
+}
+
+
+header .Logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Navigation bar styling */
+
+.espacio{
+    padding-left: 1em;
+}
+nav.barranavegadora {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: larger;
+}
+
+nav.barranavegadora ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: max-content;
+    min-width: 100%;
+}
+
+nav.barranavegadora ul li {
+    flex: 0 0 auto;
+    margin: 0 5px;
+}
+
+nav.barranavegadora ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    white-space: nowrap;
+    display: block;
+}
+
+nav.barranavegadora ul li a:hover {
+    text-decoration: underline;
+    color: rgb(255, 218, 218);
+}
+
+/* Search bar and cart styling */
+.BarraSearch {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.BarraSearch .busqueda {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    width: 200px;
+    background-color: rgba(98, 90, 90, 0.51);
+    color: #000000;
+    outline: none;
+}
+
+.BarraSearch .busqueda::placeholder {
+    color: #ffffff;
+    opacity: 4;
+    font-size: 75%;
+}
+
+.BarraSearch button {
+    background-color: rgba(79, 79, 79, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 7px 8px;
+    cursor: pointer;
+    font-size: 150%;
+    margin-left: 5px;
+}
+
+.Carrito {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.Carrito .carrito-button {
+    font-size: 135%;
+    color: rgb(255, 255, 255); /* Color del carrito */
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.Carrito .carrito-button:hover {
+    color: rgb(0, 0, 0); /* Cambia el color al pasar el ratón */
+}
+/* Header text styling */
+h1, h2, p {
+    text-align: center;
+    margin: 1%;
+}
+
+/* Category menu container */
+.Categoria-contenedor {
+    margin: 20px;
+}
+
+.Menu-Categorias {
+    position: absolute;
+    background-color: white;
+    border: 1px solid rgb(173, 97, 244);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px;
+    display: none;
+    font-size: 70%;
+    text-align: left;
+}
+
+.Menu-Categorias.mostrar {
+    display: block;
+}
+
+.Menu-Categorias ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.Menu-Categorias ul li {
+    margin: 5px 0;
+}
+
+.Menu-Categorias ul li a {
+    color: rgb(173, 97, 244);
+    text-decoration: none;
+    padding: 8px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.Menu-Categorias ul li a:hover {
+    background-color: rgba(173, 97, 244, 0.1);
+}
+
+main {
+    flex: 1; /* Permitir que el main crezca para llenar el espacio disponible */
+    padding: 20px; /* Ajusta el padding según lo necesites */
+}
+
+/* Footer styling */
+footer {
+    padding: 20px; /* Ajusta según lo necesites */
+    text-align: center;
+    background-color: #3498db; /* Color del fondo */
+    color: white; /* Color del texto */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+    margin-top: auto; /* Asegura que el footer se mantenga al fondo */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .politicas {
+    margin: 10px 0;
+}
+/* Hamburger button styling */
+#boton-categoria {
+    display: block;
+    font-size: 125%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#boton-categoria:hover {
+    background-color: rgba(173, 97, 244, 0.2);
+}
+
+/* Floating alert */
+.alerta-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    header .Logo {
+        align-self: center;
+        margin-bottom: 10px;
+    }   
+
+    nav.barranavegadora {
+        order: 3;
+        margin-top: 10px;
+        padding-left: 0;
+    }
+
+    nav.barranavegadora ul {
+        justify-content: flex-start;
+    }
+
+    .BarraSearch {
+        order: 2;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .Carrito {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .Carrito .carrito-button {
+        margin-left: 10px;
+    }
+
+    #boton-categoria {
+        margin-top: 20px;
+    }
+
+    .BarraSearch .busqueda {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    footer ul li {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav.barranavegadora ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.barranavegadora ul li {
+        margin: 5px 0;
+    }
+
+    .BarraSearch .busqueda {
+        width: 100%;
+    }
+}

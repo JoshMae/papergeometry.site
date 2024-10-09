@@ -1,0 +1,355 @@
+
+.flex-container {
+    display: flex; /* Usar flexbox */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; 
+    margin: 20px;
+}
+
+.contenedor-datos-cliente, 
+.container-datos, 
+.contenedor-transaccion{
+    width: 450px; 
+    margin-right: 20px; 
+    padding: 25px; 
+    border: 1px solid #8e8695; 
+    border-radius: 8px; 
+    background-color: rgba(239,230,247,255); 
+    box-sizing: border-box; 
+    flex-shrink: 0; 
+}
+
+/* Contenedor de Datos */
+
+
+/* Contenedor de Resumen */
+.container-resumen {
+    width: 100%; 
+    max-width: 500px; 
+    padding: 20px; 
+    border: 1px solid #8e8695; 
+    border-radius: 8px; 
+    background-color: rgba(239,230,247,255); 
+    overflow-x: auto; 
+}
+
+/* Estilos para el encabezado */
+h1, h2, h3 {
+    color: #333; /* Color de texto */
+    text-align: center; /* Centrar el texto de los encabezados */
+}
+
+/* Estilos para los campos de la tarjeta */
+.contener-tarjeta {
+    margin-bottom: 20px; /* Espacio debajo del contenedor de tarjeta */
+    width: 100%;
+    text-align: center; /* Centrar el contenido de la tarjeta */
+}
+
+/* Estilos para los inputs */
+input[type="text"] {
+    width: 95%; /* Ancho completo */
+    padding: 10px; /* Espaciado interior */
+    margin-bottom: 15px; /* Espacio debajo de los inputs */
+    border: 1px solid #8e8695; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrar los inputs */
+    outline: none;
+}
+input[type="correo"],
+input[type="tel"] {
+    width: 95%; /* Ancho completo */
+    padding: 10px; /* Espaciado interior */
+    margin-bottom: 15px; /* Espacio debajo de los inputs */
+    border: 1px solid #8e8695; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrar los inputs */
+    outline: none;
+    
+}
+
+/* Estilos para el contenedor de fecha y código */
+.flex-row {
+    display: flex; /* Usar flexbox para alineación */
+    justify-content: center; /* Centrar los elementos */
+    
+}
+
+/* Ajustes para los campos de Fecha de Expiración y Código de Seguridad */
+.campo-exp-codigo {
+    flex: 1; /* Ocupa el espacio restante */
+    margin-right: 3%;
+}
+
+/* Elimina el margen derecho del último elemento */
+.campo-codigo {
+    flex: 1;
+}
+
+/* Estilos específicos para los inputs de Fecha de Expiración y Código de Seguridad */
+.campo-exp-codigo input[type="text"],
+.campo-codigo input[type="text"] {
+    flex: 1;
+    width: 85%; /* Ocupa la mitad del espacio, menos el margen */
+    height: 30px; /* Altura específica para los inputs */
+    padding: 5px 15px; /* Espaciado interno reducido */
+    margin-bottom: 15px; /* Espacio debajo de los inputs */
+    border: 1px solid #8e8695; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrar los inputs */
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #664ea3; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano al pasar */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrar el botón */
+}
+
+/* Estilos para la tabla de resumen */
+.resumen-pedido {
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Colapsar bordes */
+    table-layout: fixed; /* Distribuye el espacio de las celdas de manera uniforme */
+    word-wrap: break-word; /* Asegura que el texto se ajuste en las celdas */
+}
+
+.resumen-pedido th, .resumen-pedido td {
+    border: 1px solid #8e8695; /* Borde de las celdas */
+    padding: 10px; /* Espaciado interno de las celdas */
+    text-align: center; /* Centrar el texto en las celdas */
+}
+
+.resumen-pedido th {
+    background-color: #f2f2f2; /* Color de fondo de encabezados */
+}
+
+/* Estilos para las etiquetas de subtotal y total */
+label {
+    font-weight: bold; /* Aplica negrita al texto del label */
+    margin-bottom: 10px; /* Espacio debajo del label */
+    display: inline-block; /* Evita que el label colapse a su tamaño mínimo */
+    text-align: right; /* Centrar el texto del label */
+    position: relative; /* Permite usar pseudo-elementos como ::before */
+    padding-left: 20px; /* Añade espacio a la izquierda del label */
+    margin-top: 19px; /* Añade un margen superior para separarlo del contenido anterior */
+}
+
+
+h2 {
+    margin-left: 110px;
+    text-align: left; /* Centrar el texto de los párrafos */
+}
+
+.producto-item {
+    display: flex; /* Usar flexbox para alinear horizontalmente */
+    align-items: flex-start; /* Alinear los elementos en la parte superior */
+    justify-content: flex-start; /* Alinear todo el contenido al inicio del contenedor */
+}
+
+.imagen-contenedor {
+    position: relative; /* Para posicionar el badge correctamente */
+    margin-right: 10px; /* Espacio entre imagen y info */
+}
+
+.producto-imagen {
+    width: 100px; /* Ajusta según necesites */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-top: 15%;
+    border: 2px solid #33333352; /* Grosor de 2px, estilo sólido y color #333 */
+    border-radius: 5px; /* Opción para bordes redondeados, ajusta según necesites */
+}
+
+.cantidad-badge {
+    position: absolute; /* Posicionar sobre la imagen */
+    top: 13%; /* Ajustar la posición vertical */
+    right: 0; /* Ajustar la posición horizontal */
+    background-color: #664ea3c3; /* Color de fondo del círculo */
+    color: rgb(237, 233, 233); /* Color del texto */
+    border-radius: 50%; /* Hacer circular */
+    width: 30px; /* Tamaño del círculo */
+    height: 30px; /* Tamaño del círculo */
+    display: flex;
+    justify-content: center; /* Centrar texto horizontalmente */
+    align-items: center; /* Centrar texto verticalmente */
+    font-weight: bold; /* Hacer el texto más grueso */
+    transform: translate(50%, -50%); /* Mover el badge ligeramente fuera del borde */
+}
+
+.producto-info {
+    display: flex;
+    justify-content: space-between; /* Alinear elementos a izquierda y derecha */
+    align-items: center; /* Centrar elementos verticalmente */
+    width: 100%; /* Asegurar que el contenedor ocupe todo el ancho */
+    margin-top: 10%;
+}
+
+.producto-nombre {
+    font-size: 20px; /* Tamaño del texto */
+    font-weight: bold;
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+.producto-subtotal {
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+    text-align: right; /* Alinear a la derecha dentro de su propio bloque */
+    min-width: 100px; /* Establecer un ancho mínimo para que todos tengan el mismo espacio */
+}
+
+.producto-final {
+    display: flex;
+    flex-direction: column; /* Alinear los elementos en columnas */
+    width: 100%; /* Para ocupar todo el ancho disponible */
+}
+
+.subtotal-row, .total-row {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    padding: 10px 0; /* Espaciado vertical entre las filas */
+    border-bottom: 1px solid #ddd; /* Línea separadora opcional */
+}
+
+.subtotal-row label{
+    font-size: 13px; /* Tamaño del texto */
+    flex: 1; /* Asegurarse de que ambos elementos ocupen el mismo espacio */
+    color: #686868d5;
+}
+
+.total-row label {
+    font-size: 16px; /* Tamaño del texto */
+    flex: 1; /* Asegurarse de que ambos elementos ocupen el mismo espacio */
+
+}
+
+.subtotal-row label:first-child, .total-row label:first-child {
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.subtotal-row label:last-child, .total-row label:last-child {
+    text-align: right; /* Alinear el texto a la derecha */
+    font-weight: bold; /* Resaltar el total */
+}
+
+
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px; /* Espacio entre el input y el mensaje de error */
+    display: block; /* Asegúrate de que el mensaje se muestre como un bloque */
+    position: relative; /* Relativo al input */
+    top: -15px;
+}
+
+
+.input-error {
+    border: 2px solid red;
+}
+
+
+/* Estilo para los campos con error */
+.error {
+    background-color: rgba(255, 0, 0, 0.1); /* Color de fondo suave */
+}
+
+.input-error {
+    border: 2px solid red; /* Cambia el borde a rojo */
+    background-color: rgba(255, 0, 0, 0.1); /* Color de fondo suave */
+}
+.alerta-exito {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    z-index: 1000; 
+    text-align: center; 
+    display: none; 
+}
+
+
+
+.alerta-error {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    text-align: center;
+    background-color: red;
+}
+
+.alerta-mostrar {
+    display: block;
+    opacity: 1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos en columna */
+    }
+
+    /* Remover el margen derecho en contenedores para evitar desbordamiento */
+    .container-datos {
+        margin-right: 0; /* Sin margen derecho */
+        margin-bottom: 20px; /* Espacio abajo */
+    }
+
+    .container-resumen {
+        margin-right: 0; /* Sin margen derecho */
+        text-align: center; /* Centrar el contenido dentro del contenedor */
+    }
+
+    /* Ajustes para la tabla en pantallas pequeñas */
+    .resumen-pedido th, .resumen-pedido td {
+        padding: 8px; /* Reducir el padding en pantallas pequeñas */
+        font-size: 14px; /* Reducir el tamaño de fuente */
+    }
+
+    .resumen-pedido {
+        font-size: 14px; /* Ajusta el tamaño de fuente en pantallas pequeñas */
+    }
+
+    h2, p{
+        margin-left: 0;
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="correo"],
+    input[type="tel"],
+    button {
+        width: 90%; /* Ajustar el ancho de los inputs y botones en pantallas pequeñas */
+    }
+
+    .campo-exp-codigo input[type="text"],
+.campo-codigo input[type="text"] {
+    flex: 1;
+    width: 74%; /* Ocupa la mitad del espacio, menos el margen */
+    
+}
+}

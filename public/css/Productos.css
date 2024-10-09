@@ -1,0 +1,101 @@
+/* productos.css */
+body{
+    background-color: white;
+}
+
+.producto-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los productos */
+    justify-content: center; /* Centra los productos */
+    align-items: center; /* Alinea verticalmente los productos */
+}
+
+.producto {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 250px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: 400px; 
+    max-width: 100%; /* Asegura que no se salga del contenedor */
+}
+
+.producto img {
+    max-width: 100%; 
+    max-height: 150px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+.producto h3 {
+    font-size: 1.5em; 
+    margin: 10px 0; 
+    text-align: center; 
+}
+
+.precio {
+    font-size: 1em; 
+    color: #555;
+    text-align: left; 
+    width: 100%; 
+}
+
+.descripcion {
+    font-size: 1em; 
+    color: #555;
+    text-align: center; 
+    margin: 10px 0; 
+}
+
+.producto .btn-agregar-carrito {
+    background-color: rgb(173, 97, 244); 
+    border: none; 
+    font-size: 1em; /* Aumenta o ajusta el tamaño de la fuente según sea necesario */
+    color: white; 
+    padding: 10px 30px; /* Aumenta el padding para un botón más rectangular */
+    width: 100%; /* Mantiene el botón ocupando todo el ancho del contenedor */
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    border-radius: 4px; /* Puedes ajustar este valor para redondear las esquinas */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+}
+
+
+.producto .btn-agregar-carrito:hover {
+    background-color: rgb(149, 59, 223); 
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .producto {
+        width: 100%; /* Ocupa el 100% del contenedor en pantallas pequeñas */
+        max-width: 300px; /* Ancho máximo del producto */
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    .producto-container {
+        gap: 10px; /* Reduce el espacio entre productos */
+        justify-content: center; /* Centra los productos */
+    }
+
+    .btn-agregar-carrito {
+        padding: 5% 10%; /* Ajusta el padding del botón */
+        font-size: 100%; /* Ajusta el tamaño de fuente del botón */
+    }
+}
+
+@media (max-width: 480px) {
+    .producto h2 {
+        font-size: 1.2em; /* Reduce el tamaño del título en pantallas muy pequeñas */
+    }
+
+    .precio, .descripcion {
+        font-size: 0.9em; /* Reduce el tamaño de fuente para texto */
+    }
+}
+
+

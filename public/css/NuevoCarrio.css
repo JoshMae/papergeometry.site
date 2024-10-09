@@ -1,0 +1,173 @@
+/* Estilos generales */
+/* html, body {
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+} */
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.producto-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de la tabla */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Agrega scroll horizontal si es necesario */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 300px; /* Ajusta el ancho mínimo de la tabla */
+}
+
+thead th {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* img {
+    max-width: 50px;
+    border-radius: 5px;
+} */
+
+/* Estilos de botones de cantidad */
+.cantidad-controles {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn{
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+}
+
+.boton-de-vacio {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+button.disminuir-cantidad:hover {
+    background-color: #2980b9;
+}
+
+button.aumentar-cantidad:hover {
+    background-color: #2980b9;
+}
+
+button.eliminar-producto {
+    background-color: #e74c3c;
+}
+
+button.eliminar-producto:hover {
+    background-color: #c0392b;
+}
+
+input[type="text"] {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+/* Estilo del total del carrito */
+.total-carrito {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.total-carrito p {
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: right;
+}
+
+/* Estilos del botón "Ordenar" */
+.ordenar {
+    margin-top: 2%;
+    display: flex;
+    justify-content: flex-end; /* Mueve el contenido hacia la derecha */
+}
+
+.ordenar .boton-ordenar {
+    font-size: 18px; /* Aumentar el tamaño de la fuente */
+    padding: 18px 50px; /* Aumentar el padding */
+    background-color: #3498db; /* Cambiar el color de fondo si es necesario */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Añadir transición suave */
+}
+
+.ordenar .boton-ordenar:hover {
+    background-color: #2980b9; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .producto-container {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    img {
+        max-width: 40px;
+    }
+
+    button {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        width: 30px;
+    }
+}
