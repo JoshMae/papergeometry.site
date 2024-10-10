@@ -86,7 +86,7 @@
     
     <form id="pagoForm" autocomplete="off">
         @csrf
-        
+        <input type="hidden" id='token' name="token" value="{{ $cart_token }}">
         <div class="nuevo-bloque">
             <h2>Datos del cliente</h2>
             <div class="contenedor-datos-cliente">
@@ -112,6 +112,7 @@
                 <input type="text" id="cuenta" name="cuenta" placeholder="Ingresa tu cuenta" >  
                 <small id="cuenta-error" class="error-text"></small>
                 <input type="hidden" name="valor" id="totalCompra" value="{{ number_format($totalCarrito, 2, '.', '') }}">
+                
                 <button type="submit">Realizar Pago</button>
             </div>
         </div>
@@ -140,6 +141,7 @@
                 
                 <input type="hidden" id="totalCompra" name="total" value="{{ number_format($totalCarrito, 2, '.', '') }}">
                 <input type="hidden" id="detallesPedido" name="detalles">
+
                 <button id="confirmarPago">Confirmar Pago</button>
                 <div id="resultadoTransaccion" class="mt-4 alert" style="display: none;"></div>
             </div>
@@ -284,6 +286,7 @@ function registrarCompra() {
     const formData = new FormData(document.getElementById('pagoForm'));
     const clienteData = {
         nombres: formData.get('nombres'),
+        token:formData.get('token'),
         apellidos: formData.get('apellidos'),
         telefono: formData.get('telefono'),
         correo: formData.get('correo'),

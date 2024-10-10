@@ -9,6 +9,8 @@ use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\CarritoControllerNuevo;
 use App\Http\Controllers\OrdenController;
 use App\Http\Controllers\BienvenidaController;
+use App\Http\Controllers\ContenidoController;
+use App\Http\Controllers\PedidoController;
 
 /*Route::get('/', function () {
     return "HOLA MUNDO";
@@ -44,6 +46,24 @@ Route::post('/api-proxy/cobropos', function (Illuminate\Http\Request $request) {
 Route::post('/api/procesar-pago', [OrdenController::class, 'procesarPago']);
 Route::post('/api/procesar-pago-pos', [OrdenController::class, 'procesarPagoPos']);
 
-Route::get('/estado_orden', function () {
-    return view('carrito.barraprogreso');
-});
+Route::get('/estado_orden', [PedidoController::class, 'mostrarProgreso'])->name('barra-progreso');
+
+//ADMINISTRADOR
+//Notificar estado de pedido 
+// web.php
+
+Route::get('/administracion', function(){
+    return view('layouts.administrador');
+})->name('layout.administrador');
+
+Route::get('/pedidos/{id}/detalle', [ContenidoController::class, 'detallePedido']);
+Route::get('/cargar-vista/{vista}', [ContenidoController::class, 'cargarVista']);
+Route::get('/cargar-contenido-inventario/{contenido}', [ContenidoController::class, 'cargarContenidoInventario']);
+
+
+Route::post('/pedidos/{id}/siguiente_estado', [PedidoController::class, 'actualizarEstado']);
+Route::get('/pedidos', [PedidoController::class, 'index']);
+Route::get('/pedidos/{id}', [PedidoController::class, 'show']); // Para mostrar detalles individuales
+
+Route::post('pedido/{idPedido}/cambiar-estado', [PedidoController::class, 'cambiarEstado'])->name('pedido.cambiarEstado');
+Route::get('pedido/{idPedido}', [PedidoController::class, 'mostrar'])->name('pedido.mostrar');

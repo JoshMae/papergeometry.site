@@ -1,0 +1,145 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 12em;
+    max-width: 12em;
+    background: #fff;
+    color: #fff;
+    transition: all 0.3s ease-out;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    min-width: 3.5em;
+    max-width: 3.5em;
+}
+
+#sidebar .sidebar-header {
+    padding: 10px;
+    background: rgb(0, 144, 201);
+    height: 4em;
+    display: flex;
+    align-items: center;
+}
+
+#sidebar .logo {
+    width: 50px;
+    margin-left: -0.5em;
+}
+
+.sidebar-title {
+    height: 50px;
+    margin-left: 10px;
+    transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+}
+
+#sidebar.active .sidebar-title {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #050102;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    color: #080808;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a:hover {
+    color: rgb(0, 144, 201);
+    background: #fff;
+}
+
+#sidebar ul li.active > a, 
+a[aria-expanded="true"] {
+    color: #fff;
+    background: rgb(0, 144, 201);
+}
+
+#sidebar .bi {
+    margin-right: 10px;
+    font-size: 1.5em;
+    transition: margin 0.3s;
+}
+
+.menu-text {
+    transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+}
+
+#sidebar.active .menu-text {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#sidebar.active ul li a {
+    justify-content: center;
+}
+
+#sidebar.active .bi {
+    margin-right: 0;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.barra {
+    background-color: rgb(0, 144, 201);
+    margin-top: -8px;
+    height: 4em;
+}
+
+.boton {
+    background-color: rgb(0, 144, 201);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1.7em;
+}
+
+.style-container{
+    background-color: #ffffff;
+    padding: 5em;
+    height: 90%;
+    box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+        margin-left: -80px !important;
+    }
+    #sidebar.active {
+        margin-left: 0 !important;
+    }
+}
+
+

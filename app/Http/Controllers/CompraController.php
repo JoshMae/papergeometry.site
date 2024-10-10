@@ -15,6 +15,8 @@ class CompraController extends Controller
     // Registrar una compra
     public function registrarCompra(Request $request)
     {
+        /* $cart_token = session('cart_token'); */
+
         DB::beginTransaction();
         try {
             // Crear o encontrar el cliente
@@ -36,6 +38,7 @@ class CompraController extends Controller
             // Crear el pedido
             $pedido = Pedido::create([
                 'idCliente' => $cliente->idCliente,
+                'cart_token' => $request->input('token'),
                 'total' => $request->input('total'),
                 'idPago' => $pago->idPago
             ]);

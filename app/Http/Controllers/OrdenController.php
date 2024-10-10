@@ -11,17 +11,20 @@ class OrdenController extends Controller
     //Metodo para mostrar la orden o resumen
     public function mostrarOrden(){
 
+        $cart_token= session()->get('cart_token');
+        Log::info('Cart Token en registrarCompra: ' . $cart_token);
+
         $productosEnCarrito = session()->get('carrito', []); 
         $totalCarrito = 0;
         $subtotal = 0;
-    
+        
         foreach ($productosEnCarrito as $producto) {
             $subtotal += $producto['precio'] * $producto['cantidad'];
         }
         
         $totalCarrito = $subtotal; 
     
-        return view('carrito.ordenar', compact('productosEnCarrito', 'totalCarrito', 'subtotal'));
+        return view('carrito.ordenar', compact('productosEnCarrito', 'totalCarrito', 'subtotal', 'cart_token'));
     }
 
     private function calcularTotalCarrito($carrito){

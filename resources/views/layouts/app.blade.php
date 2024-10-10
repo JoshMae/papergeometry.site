@@ -8,8 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
     <link rel="stylesheet" href="{{ asset('css/Bienvenida.css') }}">
     <link rel="stylesheet" href="{{ asset('css/NuevoCarrio.css') }}"> 
+    
     @stack('styles')
 </head>
 <body>
