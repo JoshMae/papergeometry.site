@@ -9,7 +9,7 @@ class CatalogoController extends Controller
         public function index()
         {
                 //Aqui se consume la api
-                $response = Http::get('http://papergeometry.online/api/producto');
+                $response = Http::get('http://papergeometry.site/api/producto');
                 
                 //Verifica si la solisitud a la Api fue exitosa
                 if($response -> successful()){

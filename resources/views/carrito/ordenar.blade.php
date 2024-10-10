@@ -298,7 +298,7 @@ function registrarCompra() {
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     // Llamada a la API para registrar la compra
-    fetch('http://papergeometry.online/api/registrar-compra', {
+    fetch('http://papergeometry.site/api/registrar-compra', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

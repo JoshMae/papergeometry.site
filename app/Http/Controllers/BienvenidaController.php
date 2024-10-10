@@ -14,7 +14,7 @@ class BienvenidaController extends Controller
         $subproductosenoferta = "Productos en Oferta";
         
         // Consume la API externa
-        $response = Http::get('http://papergeometry.online/api/producto');
+        $response = Http::get('http://papergeometry.site/api/producto');
 
         // Verifica si la solicitud fue exitosa
         if ($response->successful()) {

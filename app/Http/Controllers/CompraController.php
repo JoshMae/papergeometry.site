@@ -10,12 +10,15 @@ use App\Models\PedidoDetalle;
 use App\Models\RegistroCambio;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Cookie;
+
 class CompraController extends Controller
 {
     // Registrar una compra
     public function registrarCompra(Request $request)
     {
-        /* $cart_token = session('cart_token'); */
+        //$cart_token = Cookie::get('cart_token');
+        //\Log::info('Cart Token en registrarCompra: ' . $cart_token);
 
         DB::beginTransaction();
         try {
@@ -32,15 +35,15 @@ class CompraController extends Controller
             // Crear un nuevo pago
             $pago = Pago::create([
                 'idBanco' => 1,
-                'idRespuesta' => $request->input('respuesta') + 1
+                'idRespuesta' =>1
             ]);
-
+            
             // Crear el pedido
             $pedido = Pedido::create([
                 'idCliente' => $cliente->idCliente,
                 'cart_token' => $request->input('token'),
                 'total' => $request->input('total'),
-                'idPago' => $pago->idPago
+                'idestado_pedido' => 1
             ]);
 
             // Registrar detalles del pedido
