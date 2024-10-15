@@ -29,6 +29,23 @@ class PedidoController extends Controller
         return response()->json($pedidosData);
     }
 
+    public function pedidoToken(Request $request) {
+        
+        $request->validate([
+            'token' => 'required|string',
+        ]);
+    
+        
+        $pedido = Pedido::where('cart_token', $request->input('token'))->first();
+    
+        if (!$pedido) {
+            return response()->json(['message' => 'Pedido no encontrado'], 404);
+        }
+    
+        return response()->json($pedido);
+    }
+    
+
     public function show($id)
     {
         $pedido = Pedido::with('cliente', 'pedidoDetalles.producto', 'estadoPedido')->findOrFail($id);
