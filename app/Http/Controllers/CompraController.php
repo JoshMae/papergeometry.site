@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PedidoIniciado;
 use App\Models\Carrito;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
@@ -12,6 +13,7 @@ use App\Models\RegistroCambio;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Mail;
 
 class CompraController extends Controller
 {
@@ -66,7 +68,9 @@ class CompraController extends Controller
 
             $carrito= Carrito::where('cart_token',$request->input('token'))->first();
             $carrito->delete();
-            
+
+            Mail::to($request->input('correo'))->send(new PedidoIniciado($pedido, $cliente));
+            //\Log::info('Se envio el correo a: '. $cliente->correo); 
 
             DB::commit();
             return response()->json(['success' => true, 'message' => 'Compra registrada exitosamente'], 200);

@@ -10,6 +10,6 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
 
-Schedule::dailyAt('00:00')->call(function () {
-    Artisan::call('cart:delete-old');
-});
+return function (Schedule $schedule) {
+    $schedule->command('cart:delete-old')->dailyAt('00:00');
+};
