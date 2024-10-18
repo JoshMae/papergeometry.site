@@ -36,7 +36,10 @@ class PedidoController extends Controller
         ]);
     
         
-        $pedido = Pedido::where('cart_token', $request->input('token'))->first();
+        //$pedido = Pedido::where('cart_token', $request->input('token'))->first();
+        $pedido = Pedido::where('cart_token', $request->input('token'))
+                ->where('idestado_pedido', '<', 6)
+                ->first();
     
         if (!$pedido) {
             return response()->json(['message' => 'Pedido no encontrado'], 404);
@@ -117,7 +120,10 @@ class PedidoController extends Controller
         }
 
         // Buscar el pedido asociado al cart_token
-        $pedido = Pedido::where('cart_token', $cart_token)->first();
+        $pedido = Pedido::where('cart_token', $cart_token)
+                ->where('idestado_pedido', '<', 6)
+                ->first();
+
         // Si no hay pedido para el cart_token, redirigir al carrito con un error
         if (!$pedido) {
             return redirect('/nuevo-carrito')->with('error', 'No se ha encontrado ningún pedido para este carrito.');

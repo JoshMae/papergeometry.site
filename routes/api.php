@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidoDetalleController;
 
 Route::get('/producto', [ProductoController::class, 'index']);
 
@@ -21,3 +23,7 @@ Route::get('/ver-pedido/{id}', [CompraController::class, 'verPedido']);
 Route::get('/ver-pedido', [CompraController::class, 'verPedidos']);
 
 Route::post('/pedido/token', [PedidoController::class, 'pedidoToken']);
+
+Route::get('/detallepedido/{id}', [PedidoDetalleController::class, 'show']);
+
+Route::get('/categoria', [CategoriaController::class, 'getCategorias']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrito;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\Cliente;
@@ -62,6 +63,10 @@ class CompraController extends Controller
                 'idEstado_pedido' => 1, // Estado inicial: Recibido
                 'idEmpleado' => null // Puedes dejarlo nulo por ahora
             ]);
+
+            $carrito= Carrito::where('cart_token',$request->input('token'))->first();
+            $carrito->delete();
+            
 
             DB::commit();
             return response()->json(['success' => true, 'message' => 'Compra registrada exitosamente'], 200);

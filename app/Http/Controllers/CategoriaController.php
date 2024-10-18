@@ -11,7 +11,7 @@ class CategoriaController extends Controller
     // Método para devolver todas las categorías
     public function getCategorias()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::where('estado', 1)->get();
         return response()->json($categorias);
     }
 
