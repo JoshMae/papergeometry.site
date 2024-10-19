@@ -10,6 +10,7 @@ use App\Models\Cliente;
 use App\Models\Pago;
 use App\Models\PedidoDetalle;
 use App\Models\RegistroCambio;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Cookie;
@@ -69,7 +70,9 @@ class CompraController extends Controller
             $carrito= Carrito::where('cart_token',$request->input('token'))->first();
             $carrito->delete();
 
-            Mail::to($request->input('correo'))->send(new PedidoIniciado($pedido, $cliente));
+            $pdf = PDF::loadView('pdf.comprobante', compact('pedido', 'cliente'));
+
+            Mail::to($request->input('correo'))->send(new PedidoIniciado($pedido, $cliente, $pdf->output()));
             //\Log::info('Se envio el correo a: '. $cliente->correo); 
 
             DB::commit();

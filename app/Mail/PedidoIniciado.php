@@ -1,9 +1,10 @@
 <?php
 
+
 namespace App\Mail;
 
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
+use Barryvdh\DomPDF\Facade\Pdf; // Importa la clase PDF correctamente
 use Illuminate\Mail\Mailables\Envelope;
 
 class PedidoIniciado extends Mailable
@@ -35,14 +36,26 @@ class PedidoIniciado extends Mailable
     }
 
     /**
-     * Get the content definition for the mailable.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Content
+     * @return $this
      */
-    public function content()
+    public function build()
     {
-        return new Content(
-            view: 'emails.pedido_iniciado',
-        );
+        // Generar el PDF a partir de la vista
+        $pdf = Pdf::loadView('pdf.comprobante', [
+            'pedido' => $this->pedido,
+            'cliente' => $this->cliente,
+        ])->output(); // Genera el contenido del PDF
+
+        // Adjuntar el PDF generado al correo
+        return $this->view('emails.pedido_iniciado')
+                    ->attachData($pdf, 'comprobante_pedido.pdf', [
+                        'mime' => 'application/pdf',
+                    ])
+                    ->with([
+                        'pedido' => $this->pedido,
+                        'cliente' => $this->cliente,
+                    ]);
     }
 }
