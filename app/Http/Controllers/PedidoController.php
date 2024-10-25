@@ -29,6 +29,13 @@ class PedidoController extends Controller
         return response()->json($pedidosData);
     }
 
+    public function obtenerPedidosJson()
+    {
+        $pedidos = Pedido::with(['cliente', 'pedidoDetalles', 'estadoPedido'])->get();
+        
+        return response()->json($pedidos);
+    }
+
     public function pedidoToken(Request $request) {
         
         $request->validate([

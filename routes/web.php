@@ -47,6 +47,7 @@ Route::post('/api/procesar-pago', [OrdenController::class, 'procesarPago']);
 Route::post('/api/procesar-pago-pos', [OrdenController::class, 'procesarPagoPos']);
 
 Route::get('/estado_orden', [PedidoController::class, 'mostrarProgreso'])->name('barra-progreso');
+Route::get('/pedidos-json', [PedidoController::class, 'obtenerPedidosJson']);
 
 //ADMINISTRADOR
 //Notificar estado de pedido 

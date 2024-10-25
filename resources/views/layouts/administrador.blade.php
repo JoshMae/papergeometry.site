@@ -43,7 +43,7 @@
                 </li> --}}
                 <li>
                     <a href="#" data-vista="cobros" data-bs-toggle="tooltip" data-bs-placement="right" title="Cobros">
-                        <i class="bi bi-cash-stack"></i> <span class="menu-text">Cobros</span>
+                        <i class="bi bi-cash-stack"></i> <span class="menu-text">Cuadre</span>
                     </a>                    
                 </li>
                 <li>
